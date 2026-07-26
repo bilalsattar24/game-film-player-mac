@@ -58,6 +58,14 @@ struct ContentView: View {
             performSkip(5)
             return .handled
         }
+        .onKeyPress(KeyEquivalent(",")) {
+            model.stepFrame(forward: false)
+            return .handled
+        }
+        .onKeyPress(KeyEquivalent(".")) {
+            model.stepFrame(forward: true)
+            return .handled
+        }
         .onDisappear {
             model.close()
         }
@@ -296,6 +304,15 @@ struct ContentView: View {
                 .help("Skip back 5 seconds (←)")
 
                 Button {
+                    model.stepFrame(forward: false)
+                } label: {
+                    Image(systemName: "backward.frame")
+                        .font(.title3)
+                }
+                .disabled(!model.hasVideo)
+                .help("Previous frame (,)")
+
+                Button {
                     model.togglePlayPause()
                 } label: {
                     Image(systemName: model.isPlaying ? "pause.fill" : "play.fill")
@@ -304,6 +321,15 @@ struct ContentView: View {
                 }
                 .disabled(!model.hasVideo)
                 .help("Play / Pause (Space)")
+
+                Button {
+                    model.stepFrame(forward: true)
+                } label: {
+                    Image(systemName: "forward.frame")
+                        .font(.title3)
+                }
+                .disabled(!model.hasVideo)
+                .help("Next frame (.)")
 
                 Button {
                     performSkip(5)

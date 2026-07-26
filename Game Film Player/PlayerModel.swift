@@ -114,6 +114,27 @@ final class PlayerModel {
         seek(to: currentTime + seconds)
     }
 
+    func stepFrame(forward: Bool) {
+        guard hasVideo, let item = player.currentItem else { return }
+        isBoosting = false
+        player.pause()
+        isPlaying = false
+
+        let count = forward ? 1 : -1
+        Task {
+            do {
+                try await item.step(byCount: count)
+                let seconds = self.player.currentTime().seconds
+                if seconds.isFinite, seconds >= 0 {
+                    self.currentTime = seconds
+                }
+            } catch {
+                let frameDuration = 1.0 / 30.0
+                self.seek(to: self.currentTime + (forward ? frameDuration : -frameDuration))
+            }
+        }
+    }
+
     func seek(to seconds: Double) {
         guard hasVideo else { return }
         let upper = duration > 0 ? duration : seconds

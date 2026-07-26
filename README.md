@@ -10,6 +10,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://github.com/bilalsattar24/game-film-player-mac/releases/latest"><img src="https://img.shields.io/github/v/release/bilalsattar24/game-film-player-mac?label=release" alt="Latest release"></a>
   <a href="https://github.com/bilalsattar24/game-film-player-mac/actions/workflows/ci.yml"><img src="https://github.com/bilalsattar24/game-film-player-mac/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <img src="https://img.shields.io/badge/platform-macOS%2015.2%2B-lightgrey" alt="Platform">
   <img src="https://img.shields.io/badge/Swift-5-orange" alt="Swift 5">
@@ -36,6 +37,7 @@ To refresh these images, see [`docs/screenshots/README.md`](docs/screenshots/REA
 
 - **Local file playback** — open any video on your Mac via the system file picker
 - **±5 second skip** — buttons, arrow keys, or double-click the left/right side of the video
+- **Frame-by-frame stepping** — `,` / `.` keys or toolbar buttons to advance one frame at a time
 - **Variable speed** — set a base rate from **0.1× to 3.0×** with a slider
 - **Hold to boost** — click and hold on the video to temporarily speed up (2×, or 3× if your base rate is already ≥ 2×); release to return to your chosen speed
 - **Cursor-anchored pinch zoom** — zoom toward your pointer, like Maps or Preview
@@ -50,6 +52,8 @@ To refresh these images, see [`docs/screenshots/README.md`](docs/screenshots/REA
 | `Space` | Play / Pause |
 | `←` | Skip back 5 seconds |
 | `→` | Skip forward 5 seconds |
+| `,` | Previous frame |
+| `.` | Next frame |
 
 ## Requirements
 
@@ -57,6 +61,14 @@ To refresh these images, see [`docs/screenshots/README.md`](docs/screenshots/REA
 - **Xcode 16** or later (to build from source)
 
 ## Getting started
+
+### Download (recommended)
+
+Get the latest **macOS .app** from the [Releases](https://github.com/bilalsattar24/game-film-player-mac/releases/latest) page.
+
+1. Download `Game-Film-Player-v1.0.0-macOS.zip`
+2. Unzip and drag **Game Film Player.app** to `/Applications`
+3. On first launch, right-click → **Open** if macOS blocks the unsigned build
 
 ### Build from source
 
@@ -95,6 +107,7 @@ You can drag the `.app` to `/Applications` for everyday use.
 3. **Hold** on the video to temporarily boost speed while scanning for a moment.
 4. **Pinch** on the trackpad to zoom; **drag** to pan when zoomed in.
 5. **Double-click** the left or right half of the video to jump ±5 seconds.
+6. Press **`,`** or **`.`** to step backward or forward one frame at a time.
 
 ## Project structure
 
@@ -117,7 +130,6 @@ This project follows the [Contributor Covenant](CODE_OF_CONDUCT.md).
 
 ## Roadmap ideas
 
-- Frame-by-frame stepping (`<` / `>`)
 - Bookmark / clip markers on the timeline
 - Remember last opened file and playback position
 - Drag-and-drop to open videos

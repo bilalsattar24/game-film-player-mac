@@ -30,7 +30,7 @@ It's a lightweight, sandboxed macOS app with **no accounts, no cloud, and no dep
 |---------|----------|
 | <img src="docs/screenshots/welcome.png" width="420" alt="Welcome screen"> | <img src="docs/screenshots/playback.png" width="420" alt="Playback with controls"> |
 
-> **Note:** README images are illustrative previews. For pixel-perfect captures from your machine, see [`docs/screenshots/README.md`](docs/screenshots/README.md).
+To refresh these images, see [`docs/screenshots/README.md`](docs/screenshots/README.md).
 
 ## Features
 

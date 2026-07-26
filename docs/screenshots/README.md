@@ -20,11 +20,11 @@ For the most accurate README images, replace these files with real captures from
 
 ### Option 2 — Script
 
-From the repo root, after granting **Screen Recording** permission to Terminal if prompted:
+From the repo root:
 
 ```bash
-./scripts/capture-screenshot.sh welcome
-./scripts/capture-screenshot.sh playback
+./scripts/capture-screenshot.sh welcome   # empty state
+./scripts/capture-screenshot.sh playback  # with a video loaded and playing
 ```
 
-The script captures the frontmost Game Film Player window.
+The script finds the app window via CoreGraphics and captures it with `screencapture`.
